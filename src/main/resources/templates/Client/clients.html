@@ -15,15 +15,24 @@ and open the template in the editor.
               >
     </head>
     <body>
-        <div>TODO write content</div>
+
         <div class="container">
-            <table width="1px" class="table table-bordered">
+            <form th:action="@{index}" method="get">
+                <label>Mot cle:</label>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="motcle" th:value="${mc}"/>
+                    <button type="submit" class=" mt-2 btn btn-outline-primary">Chercher</button>
+                </div>
+
+            </form>
+            <table width="1px" class="table table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Telephone</th>
+                        <th>Action</th>
                     </tr>
                 <tbody>
                     <tr th:each="client:${listClient}">
@@ -31,6 +40,11 @@ and open the template in the editor.
                         <td th:text="${client.nom}"></td>
                         <td th:text="${client.prenom}"></td>
                         <td th:text="${client.tele}"></td>
+                        <td>
+                            <a onclick="return confirm('vous voulez vraiment supprimer le client')" class="btn btn-danger btn-sm" th:href="@{delete(id=${client.id})}">Delete</a>
+                            <a  class="btn btn-warning btn-sm" th:href="${client.id}">Update</a>
+                            <a  class="btn btn-info btn-sm" th:href="${client.id}">Show</a>
+                        </td>
 
                     </tr>
                 </tbody>

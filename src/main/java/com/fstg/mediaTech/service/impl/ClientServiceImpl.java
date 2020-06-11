@@ -19,35 +19,47 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ClientServiceImpl implements IClientService {
-
+    
     @Autowired
     private IClientDao clientDao;
-
+    
     @Override
     public void save(Client client) {
         clientDao.save(client);
     }
-
+    
     @Override
     public List<Client> findAll() {
         return clientDao.findAll();
     }
-
+    
     @Override
     public Client findById(Long id) {
         return null;
     }
-
+    
     @Override
     public int update(Client client, String ref) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return 0;
     }
-
+    
     @Override
     public int delete(String ref) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return 0;
     }
-
+    
+    @Override
+    public List<Client> findBymotCle(String motcle) {
+        return clientDao.findBymotCle(motcle);
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void delete(long id) {
+        clientDao.deleteById(id);
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

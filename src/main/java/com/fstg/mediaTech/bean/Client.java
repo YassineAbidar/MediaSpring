@@ -5,39 +5,33 @@
  */
 package com.fstg.mediaTech.bean;
 
+import com.sun.istack.NotNull;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import static org.thymeleaf.util.SetUtils.size;
 
 /**
  *
  * @author yassine
  */
 @Entity
+@Table(name = "clients")
 public class Client implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String reference;
+    @NotNull
+    private String code_client;
 
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public Client(String reference, String nom, String prenom, String tele) {
-        this.reference = reference;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.tele = tele;
-    }
+    @NotNull
     private String nom;
+    @NotNull
     private String prenom;
+    @NotNull
     private String tele;
 
     public Client() {
@@ -80,6 +74,21 @@ public class Client implements Serializable {
 
     public void setTele(String tele) {
         this.tele = tele;
+    }
+
+    public String getCode_client() {
+        return code_client;
+    }
+
+    public Client(String code_client, String nom, String prenom, String tele) {
+        this.code_client = code_client;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.tele = tele;
+    }
+
+    public void setCode_client(String code_client) {
+        this.code_client = code_client;
     }
 
     public Client(String nom, String prenom, String tele) {

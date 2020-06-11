@@ -6,26 +6,22 @@
 package com.fstg.mediaTech.service;
 
 import com.fstg.mediaTech.bean.Client;
+import com.fstg.mediaTech.bean.Facture;
 import java.util.List;
 
 /**
  *
  * @author yassine
  */
-public interface IClientService {
+public interface IFactureService {
 
-    public void save(Client client);
+    public void save(Facture facture);
 
-    public List<Client> findAll();
+    public List<Facture> findAll();
 
-    public Client findById(Long id);
+    public Facture findById(Long id);
 
-    public int update(Client client, String ref);
+    public int update(Facture facture, String ref);
 
     public int delete(String ref);
-
-    public List<Client> findBymotCle(String motcle);
-
-    public void delete(long id);
-
 }
